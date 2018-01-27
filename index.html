@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+</head>
+<body>
+<!--在打包模板中可以用一下模板语法来取到webpack.config.js中htmlWebpackPlugin中配置的值-->
+<div><%= htmlWebpackPlugin.options.list %></div>
+<div>
+    <% for(var i in htmlWebpackPlugin.files) { %>
+    <%= i %> : <%= JSON.stringify(htmlWebpackPlugin.files[i]) %>
+    <% } %>
+</div>
+<div>
+    <% for(var i in htmlWebpackPlugin.options) { %>
+    <%= i %> : <%= JSON.stringify(htmlWebpackPlugin.options[i]) %>
+    <% } %>
+</div>
+</body>
+</html>
