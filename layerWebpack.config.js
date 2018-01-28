@@ -36,10 +36,6 @@ module.exports = {
           //lastest代表所有，包括es2015，es2016，es2017等
           presets: ['latest']
         }
-      },
-      {
-        test: /\.css$!\.less$!\.sass$/,
-        loader: 'style-loader!css-loader'
       }
     ]
   },
