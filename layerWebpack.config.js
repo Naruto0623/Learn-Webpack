@@ -20,14 +20,26 @@ module.exports = {
         //test中定义正则表达式去匹配你要编译转化你的文件
         test: /\.js$/,
         //loader定义对于这种文件用那种loader去编译转换
-        loader: 'babel',
+        loader: 'babel-loader',
+        //排除编译范围
+        exclude: [
+          path.resolve('./node-modules')
+        ],
+        //定义编译范围
+        include: [
+          path.resolve('./src')
+        ],
         //定义编译类型，如es2016或者es2017等
         //或者可以在根目录下建一个.babelrc文件去定义编译的文件类型
         //再或者可以在package.json中去定义一个babel的对象
         query: {
           //lastest代表所有，包括es2015，es2016，es2017等
-          presets: ['lastest']
+          presets: ['latest']
         }
+      },
+      {
+        test: /\.css$!\.less$!\.sass$/,
+        loader: 'style-loader!css-loader'
       }
     ]
   },
